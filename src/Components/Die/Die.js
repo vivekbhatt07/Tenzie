@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import "./Die.css";
 
-function Die() {
+function Die(props) {
   return (
     <Fragment>
-      <div className="die"></div>
+      <div className="die">{props.value}</div>
     </Fragment>
   );
 }

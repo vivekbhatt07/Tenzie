@@ -24,12 +24,11 @@ function App() {
   }
 
   // Created State to hold the Generated Dice List Array:
-  const [diceItemList, setDiceItemList] = React.useState(diceListGenerator());
-  console.log(diceItemList);
+  const [diceItemList, setDiceItemList] = useState(diceListGenerator());
 
   return (
     <div className="App">
-      <DieContainer />
+      <DieContainer list={diceItemList} />
     </div>
   );
 }

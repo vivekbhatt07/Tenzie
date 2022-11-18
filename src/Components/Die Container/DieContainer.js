@@ -1,11 +1,16 @@
 import React, { Fragment } from "react";
 import "./DieContainer.css";
 import Die from "../Die/Die";
-function DieContainer() {
+function DieContainer(props) {
+  // console.log(props.list.map(die => {
+  //   return <Die />
+  // }));
   return (
     <Fragment>
       <div className="die_container">
-        <Die />
+        {props.list.map((die) => {
+          return <Die key={die.id} value={die.value} isHold={die.isHold} />;
+        })}
       </div>
     </Fragment>
   );
