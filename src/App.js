@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import DieContainer from "./Components/Die Container/DieContainer";
+import { nanoid } from "nanoid";
 function App() {
   // Generates Random Number Between 1-6 :
   function randomNumberGenerator() {
@@ -14,7 +15,7 @@ function App() {
   function diceNumListGenerator() {
     for (let i = 0; i < 10; i++) {
       diceNumList.push({
-        id: "1",
+        id: nanoid(),
         value: randomNumberGenerator(),
         isHold: false,
       });
