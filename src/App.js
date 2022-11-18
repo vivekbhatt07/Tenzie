@@ -27,10 +27,28 @@ function App() {
   // Created State to hold the Generated Dice List Array:
   const [diceItemList, setDiceItemList] = useState(diceListGenerator());
 
+  // Handle Roll Button:
+  function handleRollBtn() {
+    console.log("Roll Btn");
+  }
+
+  // Hold Dice Number:
+  function handleHoldDieValue(holdDieId) {
+    setDiceItemList((prevDiceItemList) => {
+      return prevDiceItemList.map((die) => {
+        if (die.id === holdDieId) {
+          return { ...die, isHold: !die.isHold };
+        } else {
+          return die;
+        }
+      });
+    });
+  }
+
   return (
     <div className="App">
-      <DieContainer list={diceItemList} />
-      <RollBtn />
+      <DieContainer list={diceItemList} holdDieValue={handleHoldDieValue} />
+      <RollBtn roll={handleRollBtn} />
     </div>
   );
 }
