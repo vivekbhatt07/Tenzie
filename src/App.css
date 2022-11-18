@@ -21,3 +21,14 @@ p {
   margin: 0;
   padding: 0;
 }
+
+.app_head {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.app_logo {
+  width: 60%;
+  height: 60%;
+}

@@ -5,6 +5,7 @@ import RollBtn from "./Components/RollButton/RollBtn";
 import NewGameBtn from "./Components/NewGameButton/NewGameBtn";
 import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
+import diceLogo from "./Assets/diceLogo.png";
 
 function App() {
   // Generates Random Number Between 1-6 :
@@ -94,7 +95,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Tenzies</h1>
+      <div className="app_head">
+        <h1>Tenzies</h1>
+        <img className="app_logo" src={diceLogo} alt="dice-logo" />
+      </div>
       <p>
         Roll until all dice are the same. Click each die to freeze it at its
         current value between rolls.
