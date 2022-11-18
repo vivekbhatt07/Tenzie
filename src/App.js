@@ -1,29 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import DieContainer from "./Components/Die Container/DieContainer";
 import { nanoid } from "nanoid";
+
 function App() {
   // Generates Random Number Between 1-6 :
   function randomNumberGenerator() {
     return Math.ceil(Math.random() * 6);
   }
-  randomNumberGenerator();
 
-  // Generates an array with 10 Random Numbers:
-  const diceNumList = [];
+  // Generates an array with 10 Objects{id, value, isHold}:
+  const diceList = [];
 
-  function diceNumListGenerator() {
+  function diceListGenerator() {
     for (let i = 0; i < 10; i++) {
-      diceNumList.push({
+      diceList.push({
         id: nanoid(),
         value: randomNumberGenerator(),
         isHold: false,
       });
     }
-    console.log(diceNumList);
+    return diceList;
   }
 
-  diceNumListGenerator();
+  // Created State to hold the Generated Dice List Array:
+  const [diceItemList, setDiceItemList] = React.useState(diceListGenerator());
+  console.log(diceItemList);
 
   return (
     <div className="App">
