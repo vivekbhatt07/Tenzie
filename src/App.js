@@ -4,6 +4,7 @@ import DieContainer from "./Components/Die Container/DieContainer";
 import RollBtn from "./Components/RollButton/RollBtn";
 import NewGameBtn from "./Components/NewGameButton/NewGameBtn";
 import { nanoid } from "nanoid";
+import Confetti from "react-confetti";
 
 function App() {
   // Generates Random Number Between 1-6 :
@@ -80,6 +81,7 @@ function App() {
 
   return (
     <div className="App">
+      {tenzie && <Confetti />}
       <DieContainer list={diceItemList} holdDieValue={handleHoldDieValue} />
       {tenzie ? <NewGameBtn /> : <RollBtn roll={handleRollBtn} />}
     </div>
