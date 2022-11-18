@@ -8,8 +8,21 @@ function App() {
   }
   randomNumberGenerator();
 
-  // Loop that generates an array with 10 Random Numbers:
-  for (let i = 0; i < 10; i++) {}
+  // Generates an array with 10 Random Numbers:
+  const diceNumList = [];
+
+  function diceNumListGenerator() {
+    for (let i = 0; i < 10; i++) {
+      diceNumList.push({
+        id: "1",
+        value: randomNumberGenerator(),
+        isHold: false,
+      });
+    }
+    console.log(diceNumList);
+  }
+
+  diceNumListGenerator();
 
   return (
     <div className="App">
