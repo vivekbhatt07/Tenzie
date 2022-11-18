@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import DieContainer from "./Components/Die Container/DieContainer";
+import RollBtn from "./Components/RollButton/RollBtn";
 import { nanoid } from "nanoid";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
   return (
     <div className="App">
       <DieContainer list={diceItemList} />
+      <RollBtn />
     </div>
   );
 }
