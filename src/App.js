@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import DieContainer from "./Components/Die Container/DieContainer";
 import RollBtn from "./Components/RollButton/RollBtn";
+import NewGameBtn from "./Components/NewGameButton/NewGameBtn";
 import { nanoid } from "nanoid";
 
 function App() {
@@ -57,10 +58,30 @@ function App() {
     });
   }
 
+  // Created State to hold Boolean to decide whether Win/Lose:
+  const [tenzie, setTenzie] = useState(false);
+
+  useEffect(() => {
+    const isAllHold = diceItemList.every((die) => {
+      return die.isHold;
+    });
+
+    const dieOneValue = diceItemList[0].value;
+    const isAllEqual = diceItemList.every((die) => {
+      return dieOneValue === die.value;
+    });
+
+    if (isAllHold && isAllEqual) {
+      setTenzie(true);
+    } else {
+      setTenzie(false);
+    }
+  }, [diceItemList]);
+
   return (
     <div className="App">
       <DieContainer list={diceItemList} holdDieValue={handleHoldDieValue} />
-      <RollBtn roll={handleRollBtn} />
+      {tenzie ? <NewGameBtn /> : <RollBtn roll={handleRollBtn} />}
     </div>
   );
 }
