@@ -79,11 +79,24 @@ function App() {
     }
   }, [diceItemList]);
 
+  function handleNewGame() {
+    setTenzie(false);
+    setDiceItemList((prevDiceListItem) => {
+      return prevDiceListItem.map((die) => {
+        return { id: nanoid(), value: randomNumberGenerator(), isHold: false };
+      });
+    });
+  }
+
   return (
     <div className="App">
       {tenzie && <Confetti />}
       <DieContainer list={diceItemList} holdDieValue={handleHoldDieValue} />
-      {tenzie ? <NewGameBtn /> : <RollBtn roll={handleRollBtn} />}
+      {tenzie ? (
+        <NewGameBtn newGame={handleNewGame} />
+      ) : (
+        <RollBtn roll={handleRollBtn} />
+      )}
     </div>
   );
 }
