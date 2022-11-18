@@ -12,7 +12,11 @@ function Die(props) {
           color: props.isHold ? "#fff" : "#000",
         }}
       >
-        {props.value}
+        {props.diceList.map((dieImgObj) => {
+          if (dieImgObj.id === props.value) {
+            return <img src={dieImgObj.dieImg} alt="die-img" />;
+          }
+        })}
       </div>
     </Fragment>
   );

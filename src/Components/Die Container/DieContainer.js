@@ -12,6 +12,7 @@ function DieContainer(props) {
             isHold={die.isHold}
             holdId={die.id}
             holdValue={props.holdDieValue}
+            diceList={props.diceImgList}
           />
         );
       })}

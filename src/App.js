@@ -6,6 +6,12 @@ import NewGameBtn from "./Components/NewGameButton/NewGameBtn";
 import { nanoid } from "nanoid";
 import Confetti from "react-confetti";
 import diceLogo from "./Assets/diceLogo.png";
+import diceLightOne from "./Assets/diceLight/diceLightOne.svg";
+import diceLightTwo from "./Assets/diceLight/diceLightTwo.svg";
+import diceLightThree from "./Assets/diceLight/diceLightThree.svg";
+import diceLightFour from "./Assets/diceLight/diceLightFour.svg";
+import diceLightFive from "./Assets/diceLight/diceLightFive.svg";
+import diceLightSix from "./Assets/diceLight/diceLightSix.svg";
 
 function App() {
   // Generates Random Number Between 1-6 :
@@ -15,7 +21,14 @@ function App() {
 
   // Generates an array with 10 Objects{id, value, isHold}:
   const diceList = [];
-
+  const diceImg = [
+    { id: 1, dieImg: diceLightOne },
+    { id: 2, dieImg: diceLightTwo },
+    { id: 3, dieImg: diceLightThree },
+    { id: 4, dieImg: diceLightFour },
+    { id: 5, dieImg: diceLightFive },
+    { id: 6, dieImg: diceLightSix },
+  ];
   function diceListGenerator() {
     for (let i = 0; i < 10; i++) {
       diceList.push({
@@ -99,12 +112,16 @@ function App() {
         <h1>Tenzies</h1>
         <img className="app_logo" src={diceLogo} alt="dice-logo" />
       </div>
-      <p>
+      <p className="app_description">
         Roll until all dice are the same. Click each die to freeze it at its
         current value between rolls.
       </p>
       {tenzie && <Confetti />}
-      <DieContainer list={diceItemList} holdDieValue={handleHoldDieValue} />
+      <DieContainer
+        list={diceItemList}
+        holdDieValue={handleHoldDieValue}
+        diceImgList={diceImg}
+      />
       {tenzie ? (
         <NewGameBtn newGame={handleBtn} />
       ) : (
