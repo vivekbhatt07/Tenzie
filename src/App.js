@@ -30,20 +30,33 @@ function App() {
   const [diceItemList, setDiceItemList] = useState(diceListGenerator());
 
   // Handle Roll Button:
-  function handleRollBtn() {
-    setDiceItemList((prevDiceItemList) => {
-      return prevDiceItemList.map((die) => {
-        if (die.isHold) {
-          return die;
-        } else {
+  function handleBtn() {
+    if (!tenzie) {
+      setDiceItemList((prevDiceItemList) => {
+        return prevDiceItemList.map((die) => {
+          if (die.isHold) {
+            return die;
+          } else {
+            return {
+              id: nanoid(),
+              value: randomNumberGenerator(),
+              isHold: die.isHold,
+            };
+          }
+        });
+      });
+    } else {
+      setTenzie(false);
+      setDiceItemList((prevDiceListItem) => {
+        return prevDiceListItem.map((die) => {
           return {
             id: nanoid(),
             value: randomNumberGenerator(),
-            isHold: die.isHold,
+            isHold: false,
           };
-        }
+        });
       });
-    });
+    }
   }
 
   // Hold Dice Number:
@@ -79,23 +92,14 @@ function App() {
     }
   }, [diceItemList]);
 
-  function handleNewGame() {
-    setTenzie(false);
-    setDiceItemList((prevDiceListItem) => {
-      return prevDiceListItem.map((die) => {
-        return { id: nanoid(), value: randomNumberGenerator(), isHold: false };
-      });
-    });
-  }
-
   return (
     <div className="App">
       {tenzie && <Confetti />}
       <DieContainer list={diceItemList} holdDieValue={handleHoldDieValue} />
       {tenzie ? (
-        <NewGameBtn newGame={handleNewGame} />
+        <NewGameBtn newGame={handleBtn} />
       ) : (
-        <RollBtn roll={handleRollBtn} />
+        <RollBtn roll={handleBtn} />
       )}
     </div>
   );
