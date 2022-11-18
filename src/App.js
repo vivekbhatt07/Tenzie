@@ -29,7 +29,19 @@ function App() {
 
   // Handle Roll Button:
   function handleRollBtn() {
-    console.log("Roll Btn");
+    setDiceItemList((prevDiceItemList) => {
+      return prevDiceItemList.map((die) => {
+        if (die.isHold) {
+          return die;
+        } else {
+          return {
+            id: nanoid(),
+            value: randomNumberGenerator(),
+            isHold: die.isHold,
+          };
+        }
+      });
+    });
   }
 
   // Hold Dice Number:
