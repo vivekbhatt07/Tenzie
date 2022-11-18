@@ -8,8 +8,8 @@ function Die(props) {
         className="die"
         onClick={() => props.holdValue(props.holdId)}
         style={{
-          backgroundColor: props.isHold ? "#434343" : "#fff",
-          color: props.isHold ? "#fff" : "#000",
+          backgroundColor: props.isHold ? "#834d9b" : "#fff",
+          border: props.isHold ? "4px solid #834d9b" : "",
         }}
       >
         {props.diceList.map((dieImgObj) => {
