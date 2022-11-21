@@ -3,3 +3,10 @@
   grid-template: auto/ repeat(5, 1fr);
   gap: 32px;
 }
+
+@media only screen and (max-width: 600px) {
+  .die_container {
+    grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+    gap: 16px;
+  }
+}

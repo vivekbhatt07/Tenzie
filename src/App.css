@@ -1,7 +1,6 @@
 .App {
   width: 80vw;
   height: 80vh;
-  background: red;
   border-radius: 10px;
   padding: 16px;
   background-color: #f5f5f5;
@@ -36,4 +35,30 @@ p {
 .app_description {
   max-width: 480px;
   text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .App {
+    height: 140vw;
+  }
+  .app_head {
+    flex-direction: column-reverse;
+    gap: 0.8rem;
+  }
+  .app_logo {
+    width: 40%;
+    height: 40%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+@media only screen and (min-width: 1200px) {
 }
