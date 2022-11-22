@@ -23,3 +23,9 @@
 .btn:active {
   transform: scale(0.96);
 }
+
+@media only screen and (max-width: 600px) {
+  .btn {
+    font-size: 0.9rem;
+  }
+}
