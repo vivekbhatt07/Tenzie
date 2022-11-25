@@ -12,6 +12,7 @@ import diceLightThree from "./Assets/diceLight/diceLightThree.svg";
 import diceLightFour from "./Assets/diceLight/diceLightFour.svg";
 import diceLightFive from "./Assets/diceLight/diceLightFive.svg";
 import diceLightSix from "./Assets/diceLight/diceLightSix.svg";
+import Modal from "./Components/Modal/Modal";
 
 function App() {
   // Generates Random Number Between 1-6 :
@@ -108,6 +109,7 @@ function App() {
 
   return (
     <div className="App">
+      <Modal />
       <div className="app_head">
         <h1>Tenzies</h1>
         <img className="app_logo" src={diceLogo} alt="dice-logo" />
