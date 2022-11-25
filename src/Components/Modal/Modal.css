@@ -2,10 +2,14 @@
   padding: 12px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 12px;
   background: linear-gradient(to right, #9d50bb, #6e48aa);
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: absolute;
+  z-index: 99;
+  border: 5px solid #200122;
 }
 
 .modal_description {
@@ -13,11 +17,12 @@
   font-weight: 600;
 }
 
-.modal_btn_wrap {
+form {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
-
 .btn {
   color: #fff;
   background-color: #200122;
@@ -53,4 +58,8 @@ input {
 input:focus {
   outline: none;
   transform: scale(1.02);
+}
+
+input::placeholder {
+  text-align: center;
 }
