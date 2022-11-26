@@ -8,6 +8,8 @@
 
 ---
 
+## ![Tux, the Linux mascot](./public/tenzi.PNG);
+
 - Technologies used:
 
   1. React
